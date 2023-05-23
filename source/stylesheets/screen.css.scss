@@ -58,7 +58,7 @@ html, body {
   left: 0;
   bottom: 0;
   width: $nav-width;
-  background-color: $nav-bg;
+  background-color: #000;
   font-size: 13px;
   font-weight: bold;
 
@@ -76,6 +76,7 @@ html, body {
     display: block;
     max-width: 100%;
     margin-bottom: $logo-margin;
+    padding: 15px;
   }
 
   &>.search {

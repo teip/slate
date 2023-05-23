@@ -1,245 +1,197 @@
 ---
 title: API Reference
 
-language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
-  - shell
-  - ruby
-  - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - errors
-
-search: true
-
-code_clipboard: true
+language_tabs:
+  - json
 
 meta:
   - name: description
-    content: Documentation for the Kittn API
+    content: Documentación API teip
 ---
 
-# Introduction
+# Introducción
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+En esta documentación, te proporcionaremos una descripción de los endpoints disponibles, así como los parámetros y opciones de configuración admitidos. Además, te mostraremos ejemplos de solicitudes y respuestas, lo que te ayudará a comprender cómo utilizar la API en tu propia aplicación.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+  Para la utilización de la API comunicarse con su asesor comercial para la entrega de <b>usuario, contraseña, código de cliente y url</b> para cada ambiente de desarrollo.
 </aside>
 
-# Kittens
+# Autorización
 
-## Get All Kittens
+**Crear código de autorización**
 
-```ruby
-require 'kittn'
+La API utiliza autorización PKCE (Proof Key for Code Exchange) es una extensión del flujo de código de autorización OAuth 2.0 que agrega una capa adicional de seguridad al proceso de autorización.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+`POST /api/v1/oauth/application/authorize`
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+{
+  "client_id": "6jNrApfMbLyOivAfjU5W58bgYK-xKOb6wGyA1I8TlNI",
+  "redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+  "response_type": "code",
+  "code_challenge": "IqkNRrXrwLGcyTX-QLG-V5K_s0L7AE_Sv1wUoJyTPiM",
+  "code_challenge_method": "S256"
+}
+```
+
+> Respuesta:
+
+```json
+{
+  "status": "redirect",
+    "redirect_uri": {
+      "action": "show",
+      "code": "k38vzvKmkmTZgm-QhP2TPPaNvJ3CIMZBJHQgFNNfv34"
   }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
 }
 ```
 
-This endpoint retrieves a specific kitten.
+**Parametros**
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
+Parametros | Descripción
 --------- | -----------
-ID | The ID of the kitten to retrieve
+client_id | string, **requerido** <br/> código de cliente.
+redirect_uri | string, **requerido** <br/> por defecto: urn:ietf:wg:oauth:2.0:oob
+response_type | string, **requerido** <br/> por defecto: code
+code_challenge | string, **requerido** <br/> [generar code challenge S256](https://datatracker.ietf.org/doc/html/rfc7636#section-4.2)
+code_challenge_method | string, **requerido** <br/> opciones: S256 o plain
 
-## Delete a Specific Kitten
+# Token de autorización
 
-```ruby
-require 'kittn'
+**Crear token de autorización**
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
+`POST /api/v1/oauth/application/token`
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+  "client_id": "6jNrApfMbLyOivAfjU5W58bgYK-xKOb6wGyA1I8TlNI",
+  "code": "woXg6GdX6nnebd_Vuv6s9iZpuoxZ7eQCpaIZFEdFXA4",
+  "code_verifier": "0nsGofYNLgP-OMC-EV1XmwrqPcIsCMtf54yBQ8YUn0E",
+  "redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+  "grant_type": "authorization_code"
 }
 ```
 
-This endpoint deletes a specific kitten.
+> Respuesta:
 
-### HTTP Request
+```json
+{
+  "access_token": "cw1y-Hk1vf7RByoJdTnj9z7_Kl6Y9vJS-rXW4PK9R84",
+  "token_type": "Bearer",
+  "expires_in": 600,
+  "refresh_token": "kA7G7nH2kkGhoFFsQD-pq66QqDwjwPCHZZ8cDVs96i4",
+  "scope": "business",
+  "created_at": 1684796557
+}
+```
 
-`DELETE http://example.com/kittens/<ID>`
+**Parametros**
 
-### URL Parameters
-
-Parameter | Description
+Parametros | Descripción
 --------- | -----------
-ID | The ID of the kitten to delete
+client_id | string, **requerido** <br/> código de cliente.
+code | string, **requerido** <br/> Token creado en la acción de [autorización ](#autorizacion).
+code_verifier | string, **requerido** <br/> [generar code verifier](https://datatracker.ietf.org/doc/html/rfc7636#section-4.1)
+redirect_uri | string, **requerido** <br/> por defecto: urn:ietf:wg:oauth:2.0:oob
+grant_type | string, **requerido** <br/> por defecto: authorization_code
 
+# Autenticación
+
+**Crear token de autenticación**
+
+`POST api/v1/oauth/token`
+
+```json
+{
+  "grant_type" : "password",
+  "email" : "client@teip.io",
+  "password" : "ciao_billetera",
+  "scope": "business"
+}
+```
+
+> Respuesta:
+
+```json
+{
+  "access_token": "HYuYuzsZpa-INLnikmf9qYJdo_lh8HAOXwFzBMfp6hE",
+  "token_type": "Bearer",
+  "expires_in": 600,
+  "refresh_token": "8MXaztpGYG7p9VHlTSBBr9pOWGCR8PAkUuKCCTPBNBM",
+  "scope": "business",
+  "created_at": 1684796579
+}
+```
+
+**Parametros**
+
+Parametros | Descripción
+--------- | -----------
+grant_type | string, **requerido** <br/> por defecto: password
+email | string, **requerido** <br/> correo de usuario.
+password | string, **requerido** <br/> Contraseña de usuario
+scope | string, **requerido** <br/> por defecto: business
+
+# Pagar
+
+**Crear un pago**
+
+`POST /api/v1/pay`
+
+```json
+{
+  "data" {
+    "card_network": "mastercard",
+    "card_number": "5129239627814527",
+    "security_code": "123",
+    "cardholder_name": "Jhon Doe",
+    "expiration_month": "09",
+    "expiration_year": "25",
+    "subtotal_cents": 10000,
+    "subtotal_currency": "USD",
+    "billing_email": "customer@teip.io",
+    "billing_name": "Jhon",
+    "billing_country": "El Salvador",
+    "billing_city": "San Salvador",
+    "billing_address": "83 Avenida Norte y, 13 Calle Poniente 4260, San Salvador",
+    "billing_postal_code": "1101",
+    "reference_code": "1234567890"
+	}
+}
+```
+> Respuesta
+
+```json
+{
+  "data"	{
+    "id" : "6a31db5a-a0d8-4401-857c-9f321e8d83c8",
+    "status" : "success",
+    "amount_cents" : 10000,
+    "amount_currency" : "USD",
+    "response_code" : "00",
+    "authorization_number" : "127512",
+    "reference_code": "1234567890"
+  }
+}
+```
+
+**Parametros**
+
+Parametros | Descripción
+--------- | -----------
+card_network | string, **requerido** <br/> opciones: mastercard, visa.
+card_number | string, **requerido** <br/> número de tarjeta.
+security_code | string, **requerido** <br/> código de seguridad.
+cardholder_name | string, **requerido** <br/> nombre según tarjeta.
+expiration_month | string, **requerido** <br/> mes de expiración.
+expiration_year | string, **requerido** <br/> año de expiración.
+subtotal_cents | integer, **requerido** <br/> subtotal de la cuenta.
+subtotal_currency | string, **requerido** <br/> por defecto: USD.
+billing_email | string, **requerido** <br/> correo electrónico.
+billing_name | string <br/> nombre.
+billing_country | string <br/> país.
+billing_city | string <br/> ciudad.
+billing_address | string <br/> dirección.
+billing_postal_code | string <br/> código postal.
+reference_code | string <br/> código de referencia.
