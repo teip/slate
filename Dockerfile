@@ -21,6 +21,8 @@ RUN apt-get update \
 COPY . /srv/slate
 
 RUN chmod +x /srv/slate/slate.sh
+
+# build to static files in /srv/slate/build
 RUN /srv/slate/slate.sh build
 
 # ENTRYPOINT ["/srv/slate/slate.sh"]
