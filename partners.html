@@ -1,0 +1,852 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentación API teip"
+        >
+    <title>API partners Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-54414d97.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch-18c3ed8e.js"></script>
+
+  </head>
+
+  <body class="partners" data-languages="[&quot;json&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-white-220c91de.svg" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="json">json</a>
+        </div>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduccion" class="toc-h1 toc-link" data-title="Introducción">Introducción</a>
+          </li>
+          <li>
+            <a href="#autorizacion" class="toc-h1 toc-link" data-title="Autorización">Autorización</a>
+          </li>
+          <li>
+            <a href="#token-de-autorizacion" class="toc-h1 toc-link" data-title="Token de autorización">Token de autorización</a>
+          </li>
+          <li>
+            <a href="#autenticacion" class="toc-h1 toc-link" data-title="Autenticación">Autenticación</a>
+          </li>
+          <li>
+            <a href="#banco" class="toc-h1 toc-link" data-title="Banco">Banco</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#listado-de-bancos" class="toc-h2 toc-link" data-title="Listado de bancos">Listado de bancos</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#comercio" class="toc-h1 toc-link" data-title="Comercio">Comercio</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#listado-de-tipos-de-comercios" class="toc-h2 toc-link" data-title="Listado de tipos de comercios">Listado de tipos de comercios</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#compania" class="toc-h1 toc-link" data-title="Compañia">Compañia</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#crear-compania" class="toc-h2 toc-link" data-title="Crear compañia">Crear compañia</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#ordenes" class="toc-h1 toc-link" data-title="Ordenes">Ordenes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#crear-orden" class="toc-h2 toc-link" data-title="Crear orden">Crear orden</a>
+                  </li>
+                  <li>
+                    <a href="#completar-orden" class="toc-h2 toc-link" data-title="Completar orden">Completar orden</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduccion'>Introducción</h1>
+<p>En esta documentación, te proporcionaremos una descripción de los endpoints disponibles, así como los parámetros y opciones de configuración admitidos. Además, te mostraremos ejemplos de solicitudes y respuestas, lo que te ayudará a comprender cómo utilizar la API en tu propia aplicación.</p>
+
+<aside class="notice">
+  Para la utilización de la API comunicarse con su asesor comercial para la entrega de <b>usuario, contraseña, código de cliente y url</b> para cada ambiente de desarrollo.
+</aside>
+<h1 id='autorizacion'>Autorización</h1>
+<p><strong>Crear código de autorización</strong></p>
+
+<p>La API utiliza autorización PKCE (Proof Key for Code Exchange) es una extensión del flujo de código de autorización OAuth 2.0 que agrega una capa adicional de seguridad al proceso de autorización.</p>
+
+<p><code>POST /api/v1/oauth/application/authorize</code></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6jNrApfMbLyOivAfjU5W58bgYK-xKOb6wGyA1I8TlNI"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"redirect_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:ietf:wg:oauth:2.0:oob"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"response_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"code"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code_challenge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IqkNRrXrwLGcyTX-QLG-V5K_s0L7AE_Sv1wUoJyTPiM"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code_challenge_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S256"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Respuesta:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redirect"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redirect_uri"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"show"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"k38vzvKmkmTZgm-QhP2TPPaNvJ3CIMZBJHQgFNNfv34"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parametros</strong></p>
+
+<table><thead>
+<tr>
+<th>Parametros</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_id</td>
+<td>string, <strong>requerido</strong> <br/> código de cliente.</td>
+</tr>
+<tr>
+<td>redirect_uri</td>
+<td>string, <strong>requerido</strong> <br/> por defecto: urn:ietf:wg:oauth:2.0:oob</td>
+</tr>
+<tr>
+<td>response_type</td>
+<td>string, <strong>requerido</strong> <br/> por defecto: code</td>
+</tr>
+<tr>
+<td>code_challenge</td>
+<td>string, <strong>requerido</strong> <br/> <a href="https://datatracker.ietf.org/doc/html/rfc7636#section-4.2">generar code challenge S256</a></td>
+</tr>
+<tr>
+<td>code_challenge_method</td>
+<td>string, <strong>requerido</strong> <br/> opciones: S256 o plain</td>
+</tr>
+</tbody></table>
+<h1 id='token-de-autorizacion'>Token de autorización</h1>
+<p><strong>Crear token de autorización</strong></p>
+
+<p><code>POST /api/v1/oauth/application/token</code></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6jNrApfMbLyOivAfjU5W58bgYK-xKOb6wGyA1I8TlNI"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woXg6GdX6nnebd_Vuv6s9iZpuoxZ7eQCpaIZFEdFXA4"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code_verifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0nsGofYNLgP-OMC-EV1XmwrqPcIsCMtf54yBQ8YUn0E"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"redirect_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:ietf:wg:oauth:2.0:oob"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authorization_code"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Respuesta:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cw1y-Hk1vf7RByoJdTnj9z7_Kl6Y9vJS-rXW4PK9R84"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kA7G7nH2kkGhoFFsQD-pq66QqDwjwPCHZZ8cDVs96i4"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"partner"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1684796557</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parametros</strong></p>
+
+<table><thead>
+<tr>
+<th>Parametros</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_id</td>
+<td>string, <strong>requerido</strong> <br/> código de cliente.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>string, <strong>requerido</strong> <br/> Token creado en la acción de <a href="#autorizacion">autorización </a>.</td>
+</tr>
+<tr>
+<td>code_verifier</td>
+<td>string, <strong>requerido</strong> <br/> <a href="https://datatracker.ietf.org/doc/html/rfc7636#section-4.1">generar code verifier</a></td>
+</tr>
+<tr>
+<td>redirect_uri</td>
+<td>string, <strong>requerido</strong> <br/> por defecto: urn:ietf:wg:oauth:2.0:oob</td>
+</tr>
+<tr>
+<td>grant_type</td>
+<td>string, <strong>requerido</strong> <br/> por defecto: authorization_code</td>
+</tr>
+</tbody></table>
+<h1 id='autenticacion'>Autenticación</h1>
+<p><strong>Crear token de autenticación</strong></p>
+
+<p><code>POST api/v1/oauth/token</code></p>
+
+<blockquote>
+<p>AUTORIZACION: Bearer Token</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"grant_type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"client@teip.io"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"password"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ciao_billetera"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"partner"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Respuesta:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HYuYuzsZpa-INLnikmf9qYJdo_lh8HAOXwFzBMfp6hE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8MXaztpGYG7p9VHlTSBBr9pOWGCR8PAkUuKCCTPBNBM"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"partner"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1684796579</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parametros</strong></p>
+
+<table><thead>
+<tr>
+<th>Parametros</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>grant_type</td>
+<td>string, <strong>requerido</strong> <br/> por defecto: password</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string, <strong>requerido</strong> <br/> correo de usuario.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string, <strong>requerido</strong> <br/> Contraseña de usuario</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>string, <strong>requerido</strong> <br/> por defecto: partner</td>
+</tr>
+</tbody></table>
+<h1 id='banco'>Banco</h1><h3 id='listado-de-bancos'>Listado de bancos</h3>
+<blockquote>
+<p>AUTORIZACION: Bearer Token</p>
+</blockquote>
+
+<p><code>GET /api/v1/partners/banks</code></p>
+
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="w">    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"6a31db5a-a0d8-4401-857c-9f321e8d83c8"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Agrícola"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='comercio'>Comercio</h1><h3 id='listado-de-tipos-de-comercios'>Listado de tipos de comercios</h3>
+<blockquote>
+<p>AUTORIZACION: Bearer Token</p>
+</blockquote>
+
+<p><code>GET /api/v1/partners/commerce_kinds</code></p>
+
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="w">    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"9b736455-67cc-497c-8c9b-bdae8d31c757"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Comida"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='compania'>Compañia</h1><h3 id='crear-compania'>Crear compañia</h3>
+<blockquote>
+<p>AUTORIZACION: Bearer Token</p>
+</blockquote>
+
+<p><code>POST /api/v1/partners/companies</code></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shields, Kerluke and O'Hara"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"business_nit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"407-75-5793"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"business_nrc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"856-32-0924"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"commerce_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lind-Wintheiser"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"commerce_kind_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0b519b29-2ac5-4f47-9a1b-6d8fb185a978"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"company_kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"line"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Law Enforcement"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address_summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3039 Toi Station, Lake Mechellemouth, MN 80074"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address_state_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SV-SS"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address_municipality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Salvador"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Turner Inc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kris.conn@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+8096042544937"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dui"</span><span class="p">:</span><span class="w"> </span><span class="s2">"438-96-9823"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500-69-5628"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nrc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"887-24-2151"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountant_contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ankunding, Greenholt and Morar"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountant_contact_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bradly@hotmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountant_contact_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+26914176142896"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bank_account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"account_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bank_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ae41a653-3a23-4a52-9289-d9bd43d196a7"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rep. Lisabeth Greenholt"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5320573224"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billing_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"final_consumer"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"branches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Executive Office"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32547 Mona Islands, Port Michelle, LA 70565-2509"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+16704621339538"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hyun"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"contact_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2362034755337"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c5e5d96b-2020-4dd5-b277-d7ea86e9571f"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parametros</strong></p>
+
+<table><thead>
+<tr>
+<th>Parametros</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>business_name</td>
+<td>string, máximo: 32 caracteres <br/> Nombre de la razon social <br/> (obligatorio si company_kind es legal)</td>
+</tr>
+<tr>
+<td>business_nit</td>
+<td>string, máximo: 32 caracteres <br/> NIT de la razon social <br/> (obligatorio si company_kind es legal) <br/></td>
+</tr>
+<tr>
+<td>business_nrc</td>
+<td>string, máximo: 32 caracteres <br/> NRC de la razon social <br/> (obligatorio si company_kind es legal) <br/></td>
+</tr>
+<tr>
+<td>commerce_name</td>
+<td>string, <strong>requerido</strong> <br/> Nombre del comercio</td>
+</tr>
+<tr>
+<td>commerce_kind_id</td>
+<td>string (uuid), <strong>requerido</strong> <br/> Tipo de comercio</td>
+</tr>
+<tr>
+<td>company_kind</td>
+<td>string, <strong>requerido</strong> <br/> Tipo de empresa <br/> opciones: [legal, natural]</td>
+</tr>
+<tr>
+<td>line</td>
+<td>string, <strong>requerido</strong> <br/> Giro o actividad principal</td>
+</tr>
+<tr>
+<td>address_summary</td>
+<td>string, <strong>requerido</strong> <br/> Dirección de oficina central</td>
+</tr>
+<tr>
+<td>address_state_code</td>
+<td>string, <strong>requerido</strong> <br/> Departamento de oficina central</td>
+</tr>
+<tr>
+<td>address_municipality</td>
+<td>string, <strong>requerido</strong> <br/> Municipio de oficina central</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string, <strong>requerido</strong> <br/> Nombre del representante legal/propietario</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string, <strong>requerido</strong> <br/> Correo electrónico del representante legal/propietario</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string, <strong>requerido</strong> <br/> Teléfono del representante legal/propietario <br/> formato: +58668624482</td>
+</tr>
+<tr>
+<td>dui</td>
+<td>string, <strong>requerido</strong> <br/> DUI del representante legal/propietario</td>
+</tr>
+<tr>
+<td>nit</td>
+<td>string, <strong>requerido</strong> <br/> NIT del representante legal/propietario</td>
+</tr>
+<tr>
+<td>nrc</td>
+<td>string <br/> NRC del propietario</td>
+</tr>
+<tr>
+<td>accountant_contact_name</td>
+<td>string <br/> Nombre de quien recibira los estados de cuenta</td>
+</tr>
+<tr>
+<td>accountant_contact_email</td>
+<td>string <br/> Correo electronico de quien recibira los estados de cuenta</td>
+</tr>
+<tr>
+<td>accountant_contact_phone</td>
+<td>string <br/> Teléfono de quien recibira los estados de cuenta <br/> formato: +58668624482</td>
+</tr>
+<tr>
+<td>bank_account</td>
+<td>object, <strong>requerido</strong> <br/></td>
+</tr>
+<tr>
+<td>account_type</td>
+<td>string, <strong>requerido</strong> <br/> Tipo de cuenta <br/> opciones: [current, savings]</td>
+</tr>
+<tr>
+<td>bank_id</td>
+<td>string (uuid), <strong>requerido</strong> <br/> Banco</td>
+</tr>
+<tr>
+<td>account_holder</td>
+<td>string, <strong>requerido</strong> <br/> Titular de la cuenta</td>
+</tr>
+<tr>
+<td>account_number</td>
+<td>string, <strong>requerido</strong> <br/> Número de la cuenta</td>
+</tr>
+<tr>
+<td>billing_type</td>
+<td>string, <strong>requerido</strong> <br/> Tipo de facturación <br/> opciones: [final_consumer, fiscal_credit]</td>
+</tr>
+<tr>
+<td>branches</td>
+<td>array, <strong>requerido</strong></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string, <strong>requerido</strong> <br/> Nombre de sucursal</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string, <strong>requerido</strong> <br/> Dirección de sucursal</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string <br/> Teléfono de sucursal <br/> formato: +58668624482</td>
+</tr>
+<tr>
+<td>contact_name</td>
+<td>string, <strong>requerido</strong> <br/> Nombre del encargado</td>
+</tr>
+<tr>
+<td>contact_phone</td>
+<td>string, <strong>requerido</strong> <br/> Teléfono del encargado <br/> formato: +58668624482</td>
+</tr>
+</tbody></table>
+<h1 id='ordenes'>Ordenes</h1><h3 id='crear-orden'>Crear orden</h3>
+<blockquote>
+<p>AUTORIZACION: Bearer Token</p>
+</blockquote>
+
+<p><code>POST /api/v1/partners/orders</code></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"branch_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4402a1c1-cfd9-48c2-9545-07a4aa6cd6fe"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"exempt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"727249"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3a63f9e6-2382-40ef-83cf-222fadedb47c"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"727249"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parametros</strong></p>
+
+<table><thead>
+<tr>
+<th>Parametros</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>branch_id</td>
+<td>string (uuid), <strong>requerido</strong> <br/> uuid de sucursal</td>
+</tr>
+<tr>
+<td>total_cents</td>
+<td>integer, <strong>requerido</strong> <br/> monto total de la orden</td>
+</tr>
+<tr>
+<td>total_currency</td>
+<td>string, <strong>requerido</strong> <br/> moneda de la orden <br/> por defecto: &quot;USD&quot;</td>
+</tr>
+<tr>
+<td>tip_cents</td>
+<td>integer, <strong>requerido</strong> <br/> monto de la propina</td>
+</tr>
+<tr>
+<td>tip_currency</td>
+<td>string (uuid), <strong>requerido</strong> <br/> moneda de la propina <br/> por defecto: &quot;USD&quot;</td>
+</tr>
+<tr>
+<td>exempt</td>
+<td>boolean, <strong>requerido</strong> <br/> Excento <br/> opciones: [true, false]</td>
+</tr>
+<tr>
+<td>reference_code</td>
+<td>string, <strong>requerido</strong> <br/> Número de referencia de la orden del propietario</td>
+</tr>
+</tbody></table>
+<h3 id='completar-orden'>Completar orden</h3>
+<blockquote>
+<p>AUTORIZACION: Bearer Token</p>
+</blockquote>
+
+<p><code>POST /api/v1/partners/{id}/complete</code></p>
+
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3a63f9e6-2382-40ef-83cf-222fadedb47c"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parametro URL</strong></p>
+
+<table><thead>
+<tr>
+<th>Parametros</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string (uuid), <strong>requerido</strong> <br/> uuid de orden</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="json">json</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
