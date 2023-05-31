@@ -147,7 +147,7 @@ scope | string, **requerido** <br/> por defecto: partner
 
 ```json
 {
-  "data"	{
+  "data":	{
     "id" : "6a31db5a-a0d8-4401-857c-9f321e8d83c8",
     "name" : "Agrícola"
   }
@@ -166,7 +166,7 @@ scope | string, **requerido** <br/> por defecto: partner
 
 ```json
 {
-  "data"	{
+  "data":	{
     "id" : "9b736455-67cc-497c-8c9b-bdae8d31c757",
     "name" : "Comida"
   }
@@ -338,3 +338,36 @@ reference_code | string, **requerido** <br/> Número de referencia de la orden d
 Parametros | Descripción
 --------- | -----------
 id | string (uuid), **requerido** <br/> uuid de orden
+
+# Webhooks
+
+Se enviará información de cada una de los pagos realizadas a una URL proporcionada por el cliente.
+La informacion que se enviara en cada llamada del webhook es la siguiente:
+
+`POST [URL CLIENTE]`
+
+> Respuesta 200
+
+```json
+  {
+    "data": {
+      "order_number": "ATD23",
+      "reference_number": "98412",
+      "authorization_number": "23744",
+      "status": "success",
+      "date": "20230105",
+      "time": "102344"
+    }
+  }
+```
+
+**Respuesta**
+
+Parametros | Descripción
+--------- | -----------
+order_number | string (uuid), **requerido** <br/> número de orden
+reference_number | string, **requerido** <br/> número de referencia del pago
+authorization_number | string, **requerido** <br/> número de autorización del pago
+status | string, **requerido** <br/> estado del pago <br/> opciones: [success failure]
+date | string, **requerido** <br/> fecha de pago
+time | string, **requerido** <br/> hora de pago
