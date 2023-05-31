@@ -352,6 +352,9 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#webhooks" class="toc-h1 toc-link" data-title="Webhooks">Webhooks</a>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
@@ -533,7 +536,7 @@
 <p>Respuesta</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="w">    </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w">   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"6a31db5a-a0d8-4401-857c-9f321e8d83c8"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Agrícola"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -549,7 +552,7 @@
 <p>Respuesta</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="w">    </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w">   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"9b736455-67cc-497c-8c9b-bdae8d31c757"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Comida"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -838,6 +841,59 @@
 <tr>
 <td>id</td>
 <td>string (uuid), <strong>requerido</strong> <br/> uuid de orden</td>
+</tr>
+</tbody></table>
+<h1 id='webhooks'>Webhooks</h1>
+<p>Se enviará información de cada una de los pagos realizadas a una URL proporcionada por el cliente.
+La informacion que se enviara en cada llamada del webhook es la siguiente:</p>
+
+<p><code>POST [URL CLIENTE]</code></p>
+
+<blockquote>
+<p>Respuesta 200</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATD23"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98412"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"authorization_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23744"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20230105"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102344"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Respuesta</strong></p>
+
+<table><thead>
+<tr>
+<th>Parametros</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_number</td>
+<td>string (uuid), <strong>requerido</strong> <br/> número de orden</td>
+</tr>
+<tr>
+<td>reference_number</td>
+<td>string, <strong>requerido</strong> <br/> número de referencia del pago</td>
+</tr>
+<tr>
+<td>authorization_number</td>
+<td>string, <strong>requerido</strong> <br/> número de autorización del pago</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string, <strong>requerido</strong> <br/> estado del pago <br/> opciones: [success failure]</td>
+</tr>
+<tr>
+<td>date</td>
+<td>string, <strong>requerido</strong> <br/> fecha de pago</td>
+</tr>
+<tr>
+<td>time</td>
+<td>string, <strong>requerido</strong> <br/> hora de pago</td>
 </tr>
 </tbody></table>
 
