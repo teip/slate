@@ -135,6 +135,43 @@ email | string, **requerido** <br/> correo de usuario.
 password | string, **requerido** <br/> Contraseña de usuario
 scope | string, **requerido** <br/> por defecto: partner
 
+
+# Sucursales
+
+**Obtener sucursales registradas**
+
+`GET /api/v1/partners/branches`
+
+```json
+{
+  "code": "C80X6T"
+}
+```
+
+> Respuesta:
+
+```json
+{
+  "data":	[
+    {
+      "id" : "6a31db5a-a0d8-4401-857c-9f321e8d83c8",
+      "name" : "Sucursal 1"
+    },
+    {
+      "id" : "9b736455-67cc-497c-8c9b-bdae8d31c757",
+      "name" : "Sucursal 2"
+    }
+  ]
+}
+```
+
+**Parametros**
+
+Parametros | Descripción
+--------- | -----------
+code | string, **requerido** <br/> Código asociado al comercio para realizar la integración con el punto de ventas.
+
+
 # Banco
 
 ### Listado de bancos
@@ -147,10 +184,12 @@ scope | string, **requerido** <br/> por defecto: partner
 
 ```json
 {
-  "data":	{
-    "id" : "6a31db5a-a0d8-4401-857c-9f321e8d83c8",
-    "name" : "Agrícola"
-  }
+  "data":	[
+    {
+      "id" : "6a31db5a-a0d8-4401-857c-9f321e8d83c8",
+      "name" : "Agrícola"
+    }
+  ]
 }
 ```
 
@@ -166,10 +205,12 @@ scope | string, **requerido** <br/> por defecto: partner
 
 ```json
 {
-  "data":	{
-    "id" : "9b736455-67cc-497c-8c9b-bdae8d31c757",
-    "name" : "Comida"
-  }
+  "data":	[
+    {
+      "id" : "9b736455-67cc-497c-8c9b-bdae8d31c757",
+      "name" : "Comida"
+    }
+  ]
 }
 ```
 
