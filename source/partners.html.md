@@ -340,6 +340,7 @@ contact_phone | string, **requerido** <br/> Teléfono del encargado <br/> format
       "id": "3a63f9e6-2382-40ef-83cf-222fadedb47c",
       "total_cents": 10000,
       "reference_code": "727249"
+      "url": "https://links.teip.io/paylink/turner-inc--executive-office?o=3a63f9e6-2382-40ef-83cf-222fadedb47c"
     }
   }
 ```
