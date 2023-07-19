@@ -257,7 +257,8 @@ code | string, **requerido** <br/> Código asociado al comercio para realizar la
         "address": "32547 Mona Islands, Port Michelle, LA 70565-2509",
         "phone": "+16704621339538",
         "contact_name": "Hyun",
-        "contact_phone": "+2362034755337"
+        "contact_phone": "+2362034755337",
+        "code": "msuoxqiych"
       }
     ]
   }
@@ -268,7 +269,14 @@ code | string, **requerido** <br/> Código asociado al comercio para realizar la
 ```json
 {
   "data": {
-    "id": "c5e5d96b-2020-4dd5-b277-d7ea86e9571f"
+    "id": "c5e5d96b-2020-4dd5-b277-d7ea86e9571f",
+    "branches": [
+      {
+        "id": "540e1199-488e-478c-9423-8e1c29c417b5",
+        "name": "Executive Office",
+        "code": "msuoxqiych"
+      }
+    ]
   }
 }
 ```
@@ -296,18 +304,39 @@ nrc | string <br/> NRC del propietario
 accountant_contact_name | string <br/> Nombre de quien recibira los estados de cuenta
 accountant_contact_email | string <br/> Correo electronico de quien recibira los estados de cuenta
 accountant_contact_phone | string <br/> Teléfono de quien recibira los estados de cuenta <br/> formato: +58668624482
-bank_account | object, **requerido** <br/>
+nit_document_front | string, **requerido** <br/> Base64 de la imagen del NIT del representante legal/propietario
+nit_document_back | string, **requerido** <br/> Base64 de la imagen del NIT del representante legal/propietario (reverso)
+dui_document_front | string, **requerido** <br/> Base64 de la imagen del DUI del representante legal/propietario
+dui_document_back | string, **requerido** <br/> Base64 de la imagen del DUI del representante legal/propietario (reverso)
+nrc_document_front | string <br/> Base64 de la imagen del NRC del representante legal/propietario
+nrc_document_back | string <br/> Base64 de la imagen del NRC del representante legal/propietario (reverso)
+business_nit_document_front | string <br/> Base64 de la imagen del NIT de la razon social
+business_nit_document_back | string <br/> Base64 de la imagen del NIT de la razon social (reverso)
+business_nrc_document_front | string <br/> Base64 de la imagen del DUI de la razon social
+business_nrc_document_back | string <br/> Base64 de la imagen del DUI de la razon social (reverso)
+bank_account | objeto company.bank_account, **requerido** <br/>
+branches | array de objetos company.branch, **requerido**
+
+**Objeto company.bank_account**
+
+Parametros | Descripción
+--------- | -----------
 account_type | string, **requerido** <br/> Tipo de cuenta <br/> opciones: [current, savings]
 bank_id | string (uuid), **requerido** <br/> Banco
 account_holder | string, **requerido** <br/> Titular de la cuenta
 account_number | string, **requerido** <br/> Número de la cuenta
 billing_type | string, **requerido** <br/> Tipo de facturación <br/> opciones: [final_consumer, fiscal_credit]
-branches | array, **requerido**
+
+**Objeto company.branch**
+
+Parametros | Descripción
+--------- | -----------
 name | string, **requerido** <br/> Nombre de sucursal
 address | string, **requerido** <br/> Dirección de sucursal
 phone | string <br/> Teléfono de sucursal <br/> formato: +58668624482
 contact_name | string, **requerido** <br/> Nombre del encargado
 contact_phone | string, **requerido** <br/> Teléfono del encargado <br/> formato: +58668624482
+code | string, **requerido** <br/> Codigo de la sucursal
 
 # Ordenes
 
