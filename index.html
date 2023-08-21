@@ -318,7 +318,18 @@
             <a href="#autenticacion" class="toc-h1 toc-link" data-title="Autenticación">Autenticación</a>
           </li>
           <li>
-            <a href="#pagar" class="toc-h1 toc-link" data-title="Pagar">Pagar</a>
+            <a href="#pagos" class="toc-h1 toc-link" data-title="Pagos">Pagos</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#procesar-pago" class="toc-h2 toc-link" data-title="Procesar pago">Procesar pago</a>
+                  </li>
+                  <li>
+                    <a href="#listado-de-pagos" class="toc-h2 toc-link" data-title="Listado de pagos">Listado de pagos</a>
+                  </li>
+                  <li>
+                    <a href="#informacion-de-un-pago" class="toc-h2 toc-link" data-title="Informacion de un pago">Informacion de un pago</a>
+                  </li>
+              </ul>
           </li>
       </ul>
     </div>
@@ -486,8 +497,10 @@
 <td>string, <strong>requerido</strong> <br/> por defecto: business</td>
 </tr>
 </tbody></table>
-<h1 id='pagar'>Pagar</h1>
-<p><strong>Crear un pago</strong></p>
+<h1 id='pagos'>Pagos</h1><h2 id='procesar-pago'>Procesar pago</h2>
+<blockquote>
+<p>AUTORIZACION: Bearer Token</p>
+</blockquote>
 
 <p><code>POST /api/v1/pay</code></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -592,6 +605,70 @@
 <tr>
 <td>reference_code</td>
 <td>string <br/> código de referencia.</td>
+</tr>
+</tbody></table>
+<h2 id='listado-de-pagos'>Listado de pagos</h2>
+<blockquote>
+<p>AUTORIZACION: Bearer Token</p>
+</blockquote>
+
+<p><code>GET /api/v1/transactions</code></p>
+
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w">   </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"6a31db5a-a0d8-4401-857c-9f321e8d83c8"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount_cents"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount_currency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"response_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"authorization_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"127512"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billing_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billing_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@domain.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-08-21T20:03:23Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='informacion-de-un-pago'>Informacion de un pago</h2>
+<blockquote>
+<p>AUTORIZACION: Bearer Token</p>
+</blockquote>
+
+<p><code>GET /api/v1/transactions/{id}</code></p>
+
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="w">    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"6a31db5a-a0d8-4401-857c-9f321e8d83c8"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_cents"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_currency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"response_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"authorization_number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"127512"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billing_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billing_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@domain.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-08-21T20:03:23Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parametros</strong></p>
+
+<table><thead>
+<tr>
+<th>Parametros</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string, <strong>requerido</strong> <br/> identificador del pago</td>
 </tr>
 </tbody></table>
 
