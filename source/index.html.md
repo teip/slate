@@ -133,9 +133,11 @@ email | string, **requerido** <br/> correo de usuario.
 password | string, **requerido** <br/> Contraseña de usuario
 scope | string, **requerido** <br/> por defecto: business
 
-# Pagar
+# Pagos
 
-**Crear un pago**
+## Procesar pago
+
+> AUTORIZACION: Bearer Token
 
 `POST /api/v1/pay`
 
@@ -195,3 +197,62 @@ billing_city | string <br/> ciudad.
 billing_address | string <br/> dirección.
 billing_postal_code | string <br/> código postal.
 reference_code | string <br/> código de referencia.
+
+
+## Listado de pagos
+
+> AUTORIZACION: Bearer Token
+
+`GET /api/v1/transactions`
+
+> Respuesta
+
+```json
+{
+  "data":	[
+    {
+      "id" : "6a31db5a-a0d8-4401-857c-9f321e8d83c8",
+      "status" : "success",
+      "amount_cents" : 10000,
+      "amount_currency" : "USD",
+      "response_code" : "00",
+      "authorization_number" : "127512",
+      "reference_code": "1234567890",
+      "billing_name": "John Doe",
+      "billing_email": "john.doe@domain.com",
+      "date": "2023-08-21T20:03:23Z"
+    }
+  ]
+}
+```
+
+## Informacion de un pago
+
+> AUTORIZACION: Bearer Token
+
+`GET /api/v1/transactions/{id}`
+
+> Respuesta
+
+```json
+{
+  "data"	{
+    "id" : "6a31db5a-a0d8-4401-857c-9f321e8d83c8",
+    "status" : "success",
+    "amount_cents" : 10000,
+    "amount_currency" : "USD",
+    "response_code" : "00",
+    "authorization_number" : "127512",
+    "reference_code": "1234567890",
+    "billing_name": "John Doe",
+    "billing_email": "john.doe@domain.com",
+    "date": "2023-08-21T20:03:23Z"
+  }
+}
+```
+
+**Parametros**
+
+Parametros | Descripción
+--------- | -----------
+id | string, **requerido** <br/> identificador del pago
