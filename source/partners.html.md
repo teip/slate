@@ -390,7 +390,7 @@ reference_code | string, **requerido** <br/> Número de referencia de la orden d
 
 > AUTORIZACION: Bearer Token
 
-`POST /api/v1/partners/{id}/complete`
+`PUT /api/v1/partners/orders/{id}/complete`
 
 
 > Respuesta
