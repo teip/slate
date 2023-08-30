@@ -351,6 +351,9 @@
                     <a href="#crear-orden" class="toc-h2 toc-link" data-title="Crear orden">Crear orden</a>
                   </li>
                   <li>
+                    <a href="#actualizar-orden" class="toc-h2 toc-link" data-title="Actualizar orden">Actualizar orden</a>
+                  </li>
+                  <li>
                     <a href="#completar-orden" class="toc-h2 toc-link" data-title="Completar orden">Completar orden</a>
                   </li>
               </ul>
@@ -871,8 +874,8 @@
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"branch_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4402a1c1-cfd9-48c2-9545-07a4aa6cd6fe"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"total_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"total_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"subtotal_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"subtotal_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
       </span><span class="nl">"tip_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"exempt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -887,7 +890,8 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3a63f9e6-2382-40ef-83cf-222fadedb47c"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"total_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"subtotal_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
       </span><span class="nl">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"727249"</span><span class="w">
       </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://links.teip.io/paylink/turner-inc--executive-office?o=3a63f9e6-2382-40ef-83cf-222fadedb47c"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -906,11 +910,11 @@
 <td>string (uuid), <strong>requerido</strong> <br/> uuid de sucursal</td>
 </tr>
 <tr>
-<td>total_cents</td>
+<td>subtotal_cents</td>
 <td>integer, <strong>requerido</strong> <br/> monto total de la orden</td>
 </tr>
 <tr>
-<td>total_currency</td>
+<td>subtotal_currency</td>
 <td>string, <strong>requerido</strong> <br/> moneda de la orden <br/> por defecto: &quot;USD&quot;</td>
 </tr>
 <tr>
@@ -928,6 +932,61 @@
 <tr>
 <td>reference_code</td>
 <td>string, <strong>requerido</strong> <br/> Número de referencia de la orden del propietario</td>
+</tr>
+</tbody></table>
+<h3 id='actualizar-orden'>Actualizar orden</h3>
+<blockquote>
+<p>AUTORIZACION: Bearer Token</p>
+</blockquote>
+
+<p><code>PUT /api/v1/partners/orders/{id}</code></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"subtotal_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"subtotal_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3a63f9e6-2382-40ef-83cf-222fadedb47c"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"subtotal_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"727249"</span><span class="w">
+      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://links.teip.io/paylink/turner-inc--executive-office?o=3a63f9e6-2382-40ef-83cf-222fadedb47c"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parametros</strong></p>
+
+<table><thead>
+<tr>
+<th>Parametros</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>subtotal_cents</td>
+<td>integer, <strong>requerido</strong> <br/> monto total de la orden</td>
+</tr>
+<tr>
+<td>subtotal_currency</td>
+<td>string, <strong>requerido</strong> <br/> moneda de la orden <br/> por defecto: &quot;USD&quot;</td>
+</tr>
+<tr>
+<td>tip_cents</td>
+<td>integer, <strong>requerido</strong> <br/> monto de la propina</td>
+</tr>
+<tr>
+<td>tip_currency</td>
+<td>string (uuid), <strong>requerido</strong> <br/> moneda de la propina <br/> por defecto: &quot;USD&quot;</td>
 </tr>
 </tbody></table>
 <h3 id='completar-orden'>Completar orden</h3>
@@ -971,49 +1030,17 @@ La informacion que se enviara en cada llamada del webhook es la siguiente:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATD23"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98412"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"authorization_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23744"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"order_reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATD23"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20230105"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102344"</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102344"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan Quesada Maldonado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kenny_little@zemlak.net"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"subtotal_cents"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="mi">100</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>Respuesta</strong></p>
-
-<table><thead>
-<tr>
-<th>Parametros</th>
-<th>Descripción</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>order_number</td>
-<td>string (uuid), <strong>requerido</strong> <br/> número de orden</td>
-</tr>
-<tr>
-<td>reference_number</td>
-<td>string, <strong>requerido</strong> <br/> número de referencia del pago</td>
-</tr>
-<tr>
-<td>authorization_number</td>
-<td>string, <strong>requerido</strong> <br/> número de autorización del pago</td>
-</tr>
-<tr>
-<td>status</td>
-<td>string, <strong>requerido</strong> <br/> estado del pago <br/> opciones: [success failure]</td>
-</tr>
-<tr>
-<td>date</td>
-<td>string, <strong>requerido</strong> <br/> fecha de pago</td>
-</tr>
-<tr>
-<td>time</td>
-<td>string, <strong>requerido</strong> <br/> hora de pago</td>
-</tr>
-</tbody></table>
-
       </div>
       <div class="dark-box">
           <div class="lang-selector">
