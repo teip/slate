@@ -368,6 +368,7 @@ code | string, **requerido** <br/> Codigo de la sucursal
     "data": {
       "id": "3a63f9e6-2382-40ef-83cf-222fadedb47c",
       "total_cents": 10000,
+      "tip_cents": 100,
       "reference_code": "727249"
       "url": "https://links.teip.io/paylink/turner-inc--executive-office?o=3a63f9e6-2382-40ef-83cf-222fadedb47c"
     }
@@ -385,6 +386,48 @@ tip_cents | integer, **requerido** <br/> monto de la propina
 tip_currency | string (uuid), **requerido** <br/> moneda de la propina <br/> por defecto: "USD"
 exempt | boolean, **requerido** <br/> Excento <br/> opciones: [true, false]
 reference_code | string, **requerido** <br/> Número de referencia de la orden del propietario
+
+### Actualizar orden
+
+> AUTORIZACION: Bearer Token
+
+`PUT /api/v1/partners/orders/{id}`
+
+```json
+{
+  "data": {
+    {
+      "total_cents": 10000,
+      "total_currency": "USD",
+      "tip_cents": 100,
+      "tip_currency": "USD"
+    }
+  }
+}
+```
+> Respuesta
+
+```json
+  {
+    "data": {
+      "id": "3a63f9e6-2382-40ef-83cf-222fadedb47c",
+      "total_cents": 10000,
+      "tip_cents": 100,
+      "reference_code": "727249"
+      "url": "https://links.teip.io/paylink/turner-inc--executive-office?o=3a63f9e6-2382-40ef-83cf-222fadedb47c"
+    }
+  }
+```
+
+**Parametros**
+
+Parametros | Descripción
+--------- | -----------
+total_cents | integer, **requerido** <br/> monto total de la orden
+total_currency | string, **requerido** <br/> moneda de la orden <br/> por defecto: "USD"
+tip_cents | integer, **requerido** <br/> monto de la propina
+tip_currency | string (uuid), **requerido** <br/> moneda de la propina <br/> por defecto: "USD"
+
 
 ### Completar orden
 
