@@ -465,23 +465,15 @@ La informacion que se enviara en cada llamada del webhook es la siguiente:
 ```json
   {
     "data": {
-      "order_number": "ATD23",
-      "reference_number": "98412",
-      "authorization_number": "23744",
+      "order_reference_number": "ATD23",
       "status": "success",
       "date": "20230105",
-      "time": "102344"
+      "time": "102344",
+      "user_name": "Juan Quesada Maldonado",
+      "user_email": "kenny_little@zemlak.net",
+      "subtotal_cents":10000,
+      "tip_cents":100
     }
   }
 ```
 
-**Respuesta**
-
-Parametros | Descripción
---------- | -----------
-order_number | string (uuid), **requerido** <br/> número de orden
-reference_number | string, **requerido** <br/> número de referencia del pago
-authorization_number | string, **requerido** <br/> número de autorización del pago
-status | string, **requerido** <br/> estado del pago <br/> opciones: [success failure]
-date | string, **requerido** <br/> fecha de pago
-time | string, **requerido** <br/> hora de pago
