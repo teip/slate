@@ -351,8 +351,8 @@ code | string, **requerido** <br/> Codigo de la sucursal
   "data": {
     {
       "branch_id": "4402a1c1-cfd9-48c2-9545-07a4aa6cd6fe",
-      "total_cents": 10000,
-      "total_currency": "USD",
+      "subtotal_cents": 10000,
+      "subtotal_currency": "USD",
       "tip_cents": 100,
       "tip_currency": "USD",
       "exempt": false,
@@ -367,7 +367,7 @@ code | string, **requerido** <br/> Codigo de la sucursal
   {
     "data": {
       "id": "3a63f9e6-2382-40ef-83cf-222fadedb47c",
-      "total_cents": 10000,
+      "subtotal_cents": 10000,
       "tip_cents": 100,
       "reference_code": "727249"
       "url": "https://links.teip.io/paylink/turner-inc--executive-office?o=3a63f9e6-2382-40ef-83cf-222fadedb47c"
@@ -380,8 +380,8 @@ code | string, **requerido** <br/> Codigo de la sucursal
 Parametros | Descripción
 --------- | -----------
 branch_id | string (uuid), **requerido** <br/> uuid de sucursal
-total_cents | integer, **requerido** <br/> monto total de la orden
-total_currency | string, **requerido** <br/> moneda de la orden <br/> por defecto: "USD"
+subtotal_cents | integer, **requerido** <br/> monto total de la orden
+subtotal_currency | string, **requerido** <br/> moneda de la orden <br/> por defecto: "USD"
 tip_cents | integer, **requerido** <br/> monto de la propina
 tip_currency | string (uuid), **requerido** <br/> moneda de la propina <br/> por defecto: "USD"
 exempt | boolean, **requerido** <br/> Excento <br/> opciones: [true, false]
@@ -397,8 +397,8 @@ reference_code | string, **requerido** <br/> Número de referencia de la orden d
 {
   "data": {
     {
-      "total_cents": 10000,
-      "total_currency": "USD",
+      "subtotal_cents": 10000,
+      "subtotal_currency": "USD",
       "tip_cents": 100,
       "tip_currency": "USD"
     }
@@ -411,7 +411,7 @@ reference_code | string, **requerido** <br/> Número de referencia de la orden d
   {
     "data": {
       "id": "3a63f9e6-2382-40ef-83cf-222fadedb47c",
-      "total_cents": 10000,
+      "subtotal_cents": 10000,
       "tip_cents": 100,
       "reference_code": "727249"
       "url": "https://links.teip.io/paylink/turner-inc--executive-office?o=3a63f9e6-2382-40ef-83cf-222fadedb47c"
@@ -423,8 +423,8 @@ reference_code | string, **requerido** <br/> Número de referencia de la orden d
 
 Parametros | Descripción
 --------- | -----------
-total_cents | integer, **requerido** <br/> monto total de la orden
-total_currency | string, **requerido** <br/> moneda de la orden <br/> por defecto: "USD"
+subtotal_cents | integer, **requerido** <br/> monto total de la orden
+subtotal_currency | string, **requerido** <br/> moneda de la orden <br/> por defecto: "USD"
 tip_cents | integer, **requerido** <br/> monto de la propina
 tip_currency | string (uuid), **requerido** <br/> moneda de la propina <br/> por defecto: "USD"
 
