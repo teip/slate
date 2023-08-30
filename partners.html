@@ -876,7 +876,8 @@
       </span><span class="nl">"branch_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4402a1c1-cfd9-48c2-9545-07a4aa6cd6fe"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"subtotal_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"subtotal_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
       </span><span class="nl">"tip_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"exempt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nl">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"727249"</span><span class="w">
@@ -891,7 +892,8 @@
     </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3a63f9e6-2382-40ef-83cf-222fadedb47c"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"subtotal_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
       </span><span class="nl">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"727249"</span><span class="w">
       </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://links.teip.io/paylink/turner-inc--executive-office?o=3a63f9e6-2382-40ef-83cf-222fadedb47c"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -926,6 +928,10 @@
 <td>string (uuid), <strong>requerido</strong> <br/> moneda de la propina <br/> por defecto: &quot;USD&quot;</td>
 </tr>
 <tr>
+<td>tip_percentage</td>
+<td>integer, <strong>requerido</strong> <br/> porcentaje de la propina</td>
+</tr>
+<tr>
 <td>exempt</td>
 <td>boolean, <strong>requerido</strong> <br/> Excento <br/> opciones: [true, false]</td>
 </tr>
@@ -945,8 +951,9 @@
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"subtotal_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"subtotal_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tip_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -958,7 +965,7 @@
     </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3a63f9e6-2382-40ef-83cf-222fadedb47c"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"subtotal_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"727249"</span><span class="w">
       </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://links.teip.io/paylink/turner-inc--executive-office?o=3a63f9e6-2382-40ef-83cf-222fadedb47c"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1037,7 +1044,7 @@ La informacion que se enviara en cada llamada del webhook es la siguiente:</p>
       </span><span class="nl">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan Quesada Maldonado"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kenny_little@zemlak.net"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"subtotal_cents"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="mi">100</span><span class="w">
+      </span><span class="nl">"tip_cents"</span><span class="p">:</span><span class="mi">1000</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
