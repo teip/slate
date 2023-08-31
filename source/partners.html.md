@@ -403,8 +403,7 @@ reference_code | string, **requerido** <br/> Número de referencia de la orden d
       "subtotal_cents": 10000,
       "subtotal_currency": "USD",
       "tip_cents": 1000,
-      "tip_currency": "USD",
-      "tip_percentage": 10
+      "tip_currency": "USD"
     }
   }
 }
@@ -417,6 +416,7 @@ reference_code | string, **requerido** <br/> Número de referencia de la orden d
       "id": "3a63f9e6-2382-40ef-83cf-222fadedb47c",
       "subtotal_cents": 10000,
       "tip_cents": 1000,
+      "tip_percentage": 10,
       "reference_code": "727249"
       "url": "https://links.teip.io/paylink/turner-inc--executive-office?o=3a63f9e6-2382-40ef-83cf-222fadedb47c"
     }
